@@ -8,7 +8,7 @@ Dossier contenant quelques fichiers html. Utilisé en tant que volume à rattach
 ```
 docker run --rm --name a1 -d -p 8001:80 -v $PWD/apache-docs:/usr/local/apache2/htdocs httpd:latest
 curl localhost:8001/demo.html # affiche "bravo"
-docker stop a1 # arrête le conteneur, Docker le supprime ensuite automatoquement (option --rm)
+docker stop a1 # arrête le conteneur, Docker le supprime ensuite automatiquement (option --rm)
 ```
 
 ## exo-cube
