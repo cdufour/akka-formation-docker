@@ -6,8 +6,9 @@ _Liste et utilisation des dossiers:_
 Dossier contenant quelques fichiers html. Utilisé en tant que volume à rattacher à un conteneur de serveur web
 ### Utilisation
 ```
-docker run --rm -d -p 8001:80 -v $PWD/apache-docs:/usr/lib/apache/htdocs httpd:latest
+docker run --rm --name a1 -d -p 8001:80 -v $PWD/apache-docs:/usr/local/apache/htdocs httpd:latest
 curl localhost:8001/demo.html # affiche "bravo"
+docker stop a1 # arrête le conteneur, Docker le supprime ensuite automatoquement (option --rm)
 ```
 
 ## exo-cube
