@@ -1,0 +1,7 @@
+FROM debian:11-slim
+
+WORKDIR app
+
+COPY cube .
+
+CMD ["./cube", "3"]

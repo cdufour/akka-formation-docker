@@ -1,0 +1,17 @@
+version: "3.9"
+
+# deux service utilisant le même host volume (volume partagé)
+services:
+  web:
+    image: httpd:latest
+    ports:
+    - 4000:80
+    volumes:
+    - $PWD/htdocs:/usr/local/apache2/htdocs
+
+  web2:
+    image: httpd:latest
+    ports:
+    - 4001:80
+    volumes:
+    - $PWD/htdocs:/usr/local/apache2/htdocs
