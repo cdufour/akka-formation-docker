@@ -1,13 +1,13 @@
 version: "3.9"
 services:
   web:
-    image: simpleweb:0.4
+    image: simpleweb:0.1
     ports:
     - 3001:3000
     depends_on:
     - redis
-    volumes:
-    - $PWD:/app
+    #volumes:
+    #- $PWD:/app
   
   redis:
     image: redis:5-alpine
