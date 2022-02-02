@@ -105,6 +105,7 @@ Le conteneur mysql dispose de deux variables d'env.
 La variable MYSQL_ROOT_PASSWORD, indispensable ici, permet au serveur  mysql de démarrer.
 
 ### Utilisation
+```
 cd env-demo
 docker-compose up -d
 docker-compose exec db bash
@@ -113,3 +114,4 @@ mysql -p # exécute un client mysql dans le conteur - saisir le mot de passe
 quit # sort du client mysql
 exit # sort du bash
 docker-compose down
+```
