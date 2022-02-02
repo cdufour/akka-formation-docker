@@ -98,3 +98,18 @@ Tester enfin la route de votre choix en lui adressant une requête http, par exe
 ```
 curl localhost:3001/new-route
 ```
+
+## env-demo
+Contient un docker-compose.yml illustrant le principe de transmission de variables d'environnement au conteneur.
+Le conteneur mysql dispose de deux variables d'env.
+La variable MYSQL_ROOT_PASSWORD, indispensable ici, permet au serveur  mysql de démarrer.
+
+### Utilisation
+cd env-demo
+docker-compose up -d
+docker-compose exec db bash
+env # affiche les variables d'env présentes dans le conteneur (on retrouve celles définies dans le docker-compose.yml)
+mysql -p # exécute un client mysql dans le conteur - saisir le mot de passe
+quit # sort du client mysql
+exit # sort du bash
+docker-compose down
