@@ -128,13 +128,13 @@ docker stop m1 && docker rm m1 # arrête et supprime le conteneur
 ```
 
 ## Redémarrage d'un conteneur (restart policy)
-Par défaut, un conteneur qui s'arrếte (fin d'exécution, commande stop, problème applicatif, arrêt du démon Docker) ne redémarre pas.
-Il existe [4 politques de redémarrage](https://docs.docker.com/engine/reference/run/#restart-policies---restart).
-La commande inspect sur un conteneur permet de connaître cette politique.
+Par défaut, un conteneur qui s'arrếte (fin d'exécution, commande stop, problème applicatif, arrêt du démon Docker) ne redémarre pas.  
+Il existe [4 politques de redémarrage](https://docs.docker.com/engine/reference/run/#restart-policies---restart).  
+La commande inspect sur un conteneur permet de connaître cette politique. 
 
 ## Exemple
 ```
-docker run --name r1 --restart=always redis:5-alpine
+docker run --name r1 --restart=always -d redis:5-alpine
 docker exec -it r1 sh # exécute sh sur le conteneur
 kill 1 # tue le pid 1 (redis-server) => le conteneur s'arrête immédiatement
 docker ps -a # on constate que r1 a redémarré
