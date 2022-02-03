@@ -129,7 +129,7 @@ docker stop m1 && docker rm m1 # arrête et supprime le conteneur
 
 ## Redémarrage d'un conteneur (restart policy)
 Par défaut, un conteneur qui s'arrếte (fin d'exécution, commande stop, problème applicatif, arrêt du démon Docker) ne redémarre pas.  
-Il existe [4 politques de redémarrage](https://docs.docker.com/engine/reference/run/#restart-policies---restart).  
+Il existe [4 politiques de redémarrage](https://docs.docker.com/engine/reference/run/#restart-policies---restart).  
 La commande inspect sur un conteneur permet de connaître cette politique. 
 
 ## Exemple
