@@ -110,8 +110,34 @@ cd env-demo
 docker-compose up -d
 docker-compose exec db bash
 env # affiche les variables d'env présentes dans le conteneur (on retrouve celles définies dans le docker-compose.yml)
-mysql -p # exécute un client mysql dans le conteur - saisir le mot de passe
+mysql -p # exécute un client mysql dans le conteneur - saisir le mot de passe (azerty)
 quit # sort du client mysql
 exit # sort du bash
 docker-compose down
 ```
+
+### Equivalent en pure ligne de commande Docker
+```
+docker run --name m1 -d -e MYSQL_ROOT_PASSWORD=azerty mysql:5.7
+docker exec -it m1 bash # exécution de bash dans le conteneur
+env # affiche les vars d'env présentes dans le conteneur
+mysql -p # exécute un client mysql dans le conteneur - saisir le mot de passe (azerty)
+quit # sort du client mysql
+exit # sort du bash
+docker stop m1 && docker rm m1 # arrête et supprime le conteneur
+```
+
+## Redémarrage d'un conteneur (restart policy)
+Par défaut, un conteneur qui s'arrếte (fin d'exécution, commande stop, problème applicatif, arrêt du démon Docker) ne redémarre pas.
+Il existe [4 politques de redémarrage](https://docs.docker.com/engine/reference/run/#restart-policies---restart).
+La commande inspect sur un conteneur permet de connaître cette politique.
+
+## Exemple
+```
+docker run --name r1 --restart=always redis:5-alpine
+docker exec -it r1 sh # exécute sh sur le conteneur
+kill 1 # tue le pid 1 (redis-server) => le conteneur s'arrête immédiatement
+docker ps -a # on constate que r1 a redémarré
+```
+De la même manière, si l'on arrête la machine hôte du démon Docker et qu'on la redémarre, r1 redémarre automatiquement.
+
