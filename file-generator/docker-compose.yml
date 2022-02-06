@@ -1,0 +1,8 @@
+# Author: Christophe DUFOUR
+# Email: cdufour@opusidea.eu
+version: "3.9"
+services:
+  app:
+    build: .
+    volumes:
+    - $PWD/files:/app/files 

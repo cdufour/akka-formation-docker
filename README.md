@@ -141,3 +141,13 @@ docker ps -a # on constate que r1 a redémarré
 ```
 De la même manière, si l'on arrête la machine hôte du démon Docker et qu'on la redémarre, r1 redémarre automatiquement.
 
+## file-generator
+Exercice corrigé.
+_Consignes:_ 
+Récupérer et dézipper le fichier file-generator.zip 
+Il s'agit d'une application python conteneurisé (Dockerfile).
+Cette application produit un fichier toutes les 10 secondes qu'elle enregistre
+à l'intérieur du conteneur (dossier /app/files)
+Votre mission est de modifier le docker-compose.yml afin d'associer au service app un volume
+permettant d'accéder aisément à ces fichiers depuis le contexte hôte
+
